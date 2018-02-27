@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script 		   
+				src="https://sapui5.hana.ondemand.com/sdk/resources/sap-ui-core.js"  
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_belize">
+		</script>
+
+		<script>		
+		       // instantiate the UI5 Application
+				var app = new sap.m.App({initialPage:"MyPage"});		
+		       // create a page				
+				var page = new sap.m.Page("MyPage", {
+					title : "Simplest Application",
+					content : 
+                    // add a text in the page content					
+					new sap.m.Text({text : "Hello Word"})
+				})
+				//assign the page to the application
+				app.addPage(page);
+				// include application into the HTML body
+				app.placeAt("content");
+
+		</script>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

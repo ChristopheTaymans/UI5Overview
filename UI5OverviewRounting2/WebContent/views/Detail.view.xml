@@ -1,0 +1,53 @@
+<mvc:View xmlns:core="sap.ui.core" 
+		  xmlns:mvc="sap.ui.core.mvc" 
+		  xmlns="sap.m" xmlns:l="sap.ui.layout" 
+		  xmlns:f="sap.ui.layout.form"
+		  xmlns:html="http://www.w3.org/1999/xhtml" 
+		  controllerName="ui5.overview.routing2.controllers.Detail">
+		  
+	<Page id="page" 
+		  title="{i18n>DETAIL_TITLE}" 
+		  showNavButton="{Info>/fullScreen}" 
+		  navButtonPress="onNavButton" class="MasterButton">
+		<headerContent>
+			<Button icon="sap-icon://full-screen" 
+			        tooltip="{i18n>fullscreentip}"
+			        press="_goToFullScreen" 
+			        visible="{= ${Info>/fullScreen} === true ? false : true  }" />
+		</headerContent>
+		<content>
+			<ObjectHeader responsive="false" 
+						  title="{Name}" 
+						  numberUnit="EUR"
+				          number="{ path: 'Price', 
+				          			type: 'sap.ui.model.type.Float', 
+				          			formatOptions: { groupingEnabled: true, 
+				          							 decimals: 2, 
+				          							 groupingSeparator : '.', 
+				          							 decimalSeparator : ',' } 
+				          			}">
+				<attributes>
+					<ObjectAttribute title="{i18n>ProductId}" text="{ProductSet>ProductId}"/>
+					<ObjectAttribute title="{i18n>Supplier}" text="{ProductSet>SupplierName}"/>
+					<ObjectAttribute title="{i18n>Dimension}" text="{ProductSet>Width} x {ProductSet>Depth} x {ProductSet>Height} {ProductSet>DimUnit}"/>
+				</attributes>
+				
+				<statuses>
+					<ObjectStatus text="{i18n>Weight} : {ProductSet>WeightMeasure} {ProductSet>WeightUnit}"
+						          state="{ parts: [ {path: 'ProductSet>WeightMeasure'}, {path: 'ProductSet>WeightUnit'} ], formatter: '.weightState' }"/>
+					<ObjectStatus text="{i18n>Stock} : {ProductSet>Quantity}" state="{ path : 'ProductSet>Quantity', formatter : '.stockStatus' }"/>
+				</statuses>
+  			</ObjectHeader>
+			<VBox alignItems="Center">
+				<items>
+					<Image id="productImage" 
+						   src="{ProductSet>ProductPicUrl}" 
+						   decorative="true" 
+						   class="sapUiSmallMargin" 
+						   width="100%"/>
+					<ObjectAttribute text="{ProductSet>Description}"/>
+				</items>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,17 @@
+<mvc:View    
+    controllerName="ui5.overview.simplest.component.controllers.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+	<App>
+	<Page title="Simplest Application MVC">
+		<content>
+			<VBox alignItems="Center" justifyContent="Center" alignContent="SpaceAround">
+				<Text text="Hello MVC  " />
+				<Button text = "Push me" press="onButtonPress"/>
+			</VBox>
+		</content>
+	</Page>		
+   </App>	
+</mvc:View>
+
