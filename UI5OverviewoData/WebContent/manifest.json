@@ -11,14 +11,14 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"oData": {
-				"uri": "proxy/http/sapfid.msnet.railb.be:8002/sap/opu/odata/sap/ZUI5OVERVIEW_SRV",
+			"mainService": {
+				"uri": "http://psadc-hanadb3.sap.soapeople.com:55100/sap/opu/odata/sap/ZUI5OVERVIEW_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "/localService/metadata.xml"
+					"localUri": "localService/metadata.xml"
 				}
-			}		
+			}
 		}
 	},
 		
@@ -57,14 +57,8 @@
 		
 	    "models": {
 			"": {
-				"dataSource": "oData",
-				"settings": {
-					"json": true,
-					"useBatch": false,
-					"tokenHandling": true,	
-					"defaultBindingMode":"TwoWay",
-					"refreshAfterChange" : true
-				}
+				"dataSource": "mainService",
+				"preload": true
 			},
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",

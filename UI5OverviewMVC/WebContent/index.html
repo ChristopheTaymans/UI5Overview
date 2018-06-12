@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta http-equiv="X-UA-Compatible" 
-      		content="IE=edge">
-      <meta charset="utf-8">
-      
-      <script
-         id="sap-ui-bootstrap"
-         src="https://sapui5.hana.ondemand.com/sdk/resources/sap-ui-core.js" 
-         data-sap-ui-theme="sap_belize"
-         data-sap-ui-libs="sap.m"
 
-         data-sap-ui-resourceroots='{ "ui5.overview.MVC": "./" 
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
 
+  <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/sdk/resources/sap-ui-core.js" data-sap-ui-theme="sap_belize"
+    data-sap-ui-libs="sap.m" data-sap-ui-resourceroots='{ "ui5.overview.MVC": "./" }' data-sap-ui-preload="async">
+  </script>
 
-          }' > 
-      </script> 		
-        <script>		
-                // create application container
-                var app = new sap.m.App({initialPage:"MyPage"});
-                // Create a XML view
-                var myView = new sap.ui.view({id:"MyPage", 
-                                              viewName:"ui5.overview.MVC.views.main", 
-                                              type:sap.ui.core.mvc.ViewType.XML});
-                // add the view to the App                              
-                app.addPage(myView);
-                // Place the app in the HTML body
-				app.placeAt("content");
-		</script>
-   </head>
-   
-   <body class="sapUiBody" id="content">
-   </body>
+  <script>
+    sap.ui.getCore().attachInit(function () {
+      // create application container
+      var app = new sap.m.App({
+        initialPage: "MyPage"
+      });
+      // Create a XML view
+      var myView = new sap.ui.view({
+        id: "MyPage",
+        viewName: "ui5.overview.MVC.views.main",
+        type: sap.ui.core.mvc.ViewType.XML
+      });
+      // add the view to the App                              
+      app.addPage(myView);
+      // Place the app in the HTML body
+      app.placeAt("content");
+    });
+  </script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
+
 </html>

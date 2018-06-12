@@ -4,14 +4,18 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
 
-		<script 		   
+		<script 	
+		//https://tools.hana.ondemand.com/#sapui5	   
 				src="https://sapui5.hana.ondemand.com/sdk/resources/sap-ui-core.js"  
 				id="sap-ui-bootstrap"
 				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_belize">
-		</script>
+				data-sap-ui-theme="sap_belize"
+				data-sap-ui-preload="async" >
+      </script>
+		
 
 		<script>		
+		sap.ui.getCore().attachInit(function () {
 		       // instantiate the UI5 Application
 				var app = new sap.m.App({initialPage:"MyPage"});		
 		       // create a page				
@@ -25,7 +29,7 @@
 				app.addPage(page);
 				// include application into the HTML body
 				app.placeAt("content");
-
+		});
 		</script>
 	</head>
 	<body class="sapUiBody" role="application">
